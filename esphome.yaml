@@ -1,5 +1,6 @@
 packages:
   fan: !include common/fan.yaml
+  remote: !include common/remotes/brown-studios/remote.yaml
 
 esphome:
   name: maxxfan

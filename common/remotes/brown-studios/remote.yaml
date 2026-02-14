@@ -1,0 +1,276 @@
+external_components:
+  - source: github://brown-studios/esphome-maxxfan-protocol@main
+    components: [ maxxfan_protocol ]
+
+maxxfan_protocol:
+
+remote_transmitter:
+  - id: ir_transmitter
+    pin:
+      number: 4
+      inverted: false
+    non_blocking: true
+    carrier_duty_percent: 50%
+
+script:
+  - id: send_out
+    parameters:
+      speed: int
+    then:
+      - remote_transmitter.transmit_maxxfan:
+          transmitter_id: ir_transmitter
+          fan_exhaust: true
+          cover_open: true
+          fan_on: true
+          fan_speed: !lambda return speed;
+
+  - id: send_in
+    parameters:
+      speed: int
+    then:
+      - remote_transmitter.transmit_maxxfan:
+          transmitter_id: ir_transmitter
+          fan_exhaust: false
+          cover_open: true
+          fan_on: true
+          fan_speed: !lambda return speed;
+
+  - id: send_ceiling
+    parameters:
+      speed: int
+    then:
+      - remote_transmitter.transmit_maxxfan:
+          transmitter_id: ir_transmitter
+          cover_open: false
+          fan_on: true
+          fan_speed: !lambda return speed;
+
+  # Open / Close
+  - id: !extend fan_open
+    mode: single
+    then:
+      - remote_transmitter.transmit_maxxfan:
+          transmitter_id: ir_transmitter
+          fan_on: false
+          cover_open: true
+
+  - id: !extend fan_close
+    mode: single
+    then:
+      - remote_transmitter.transmit_maxxfan:
+          transmitter_id: ir_transmitter
+          fan_on: false
+          cover_open: false
+
+  # ======== AIR OUT 10% to 100% ========
+  - id: !extend fan_air_out_10
+    mode: single
+    then:
+      - script.execute:
+          id: send_out
+          speed: 10
+
+  - id: !extend fan_air_out_20
+    mode: single
+    then:
+      - script.execute:
+          id: send_out
+          speed: 20
+
+  - id: !extend fan_air_out_30
+    mode: single
+    then:
+      - script.execute:
+          id: send_out
+          speed: 30
+
+  - id: !extend fan_air_out_40
+    mode: single
+    then:
+      - script.execute:
+          id: send_out
+          speed: 40
+
+  - id: !extend fan_air_out_50
+    mode: single
+    then:
+      - script.execute:
+          id: send_out
+          speed: 50
+
+  - id: !extend fan_air_out_60
+    mode: single
+    then:
+      - script.execute:
+          id: send_out
+          speed: 60
+
+  - id: !extend fan_air_out_70
+    mode: single
+    then:
+      - script.execute:
+          id: send_out
+          speed: 70
+
+  - id: !extend fan_air_out_80
+    mode: single
+    then:
+      - script.execute:
+          id: send_out
+          speed: 80
+
+  - id: !extend fan_air_out_90
+    mode: single
+    then:
+      - script.execute:
+          id: send_out
+          speed: 90
+
+  - id: !extend fan_air_out_100
+    mode: single
+    then:
+      - script.execute:
+          id: send_out
+          speed: 100
+
+  # ======== AIR IN 10% to 100% ========
+  - id: !extend fan_air_in_10
+    mode: single
+    then:
+      - script.execute:
+          id: send_in
+          speed: 10
+
+  - id: !extend fan_air_in_20
+    mode: single
+    then:
+      - script.execute:
+          id: send_in
+          speed: 20
+
+  - id: !extend fan_air_in_30
+    mode: single
+    then:
+      - script.execute:
+          id: send_in
+          speed: 30
+
+  - id: !extend fan_air_in_40
+    mode: single
+    then:
+      - script.execute:
+          id: send_in
+          speed: 40
+
+  - id: !extend fan_air_in_50
+    mode: single
+    then:
+      - script.execute:
+          id: send_in
+          speed: 50
+
+  - id: !extend fan_air_in_60
+    mode: single
+    then:
+      - script.execute:
+          id: send_in
+          speed: 60
+
+  - id: !extend fan_air_in_70
+    mode: single
+    then:
+      - script.execute:
+          id: send_in
+          speed: 70
+
+  - id: !extend fan_air_in_80
+    mode: single
+    then:
+      - script.execute:
+          id: send_in
+          speed: 80
+
+  - id: !extend fan_air_in_90
+    mode: single
+    then:
+      - script.execute:
+          id: send_in
+          speed: 90
+
+  - id: !extend fan_air_in_100
+    mode: single
+    then:
+      - script.execute:
+          id: send_in
+          speed: 100
+
+  # ======== CEILING FAN 10% to 100% ========
+  - id: !extend fan_ceiling_10
+    mode: single
+    then:
+      - script.execute:
+          id: send_ceiling
+          speed: 10
+
+  - id: !extend fan_ceiling_20
+    mode: single
+    then:
+      - script.execute:
+          id: send_ceiling
+          speed: 20
+
+  - id: !extend fan_ceiling_30
+    mode: single
+    then:
+      - script.execute:
+          id: send_ceiling
+          speed: 30
+
+  - id: !extend fan_ceiling_40
+    mode: single
+    then:
+      - script.execute:
+          id: send_ceiling
+          speed: 40
+
+  - id: !extend fan_ceiling_50
+    mode: single
+    then:
+      - script.execute:
+          id: send_ceiling
+          speed: 50
+
+  - id: !extend fan_ceiling_60
+    mode: single
+    then:
+      - script.execute:
+          id: send_ceiling
+          speed: 60
+
+  - id: !extend fan_ceiling_70
+    mode: single
+    then:
+      - script.execute:
+          id: send_ceiling
+          speed: 70
+
+  - id: !extend fan_ceiling_80
+    mode: single
+    then:
+      - script.execute:
+          id: send_ceiling
+          speed: 80
+
+  - id: !extend fan_ceiling_90
+    mode: single
+    then:
+      - script.execute:
+          id: send_ceiling
+          speed: 90
+
+  - id: !extend fan_ceiling_100
+    mode: single
+    then:
+      - script.execute:
+          id: send_ceiling
+          speed: 100
