@@ -1,0 +1,20 @@
+packages:
+  fan: !include common/fan.yaml
+
+esphome:
+  name: maxxfan-ir
+  friendly_name: Maxxfan IR
+
+# Your own configuration goes here
+esp32:
+  board: esp32-s3-devkitc-1
+  framework:
+    type: esp-idf
+
+logger:
+  level: INFO
+
+api:
+ota:
+wifi:
+captive_portal:

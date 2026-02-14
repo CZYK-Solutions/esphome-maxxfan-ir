@@ -1,0 +1,195 @@
+script:
+  # Open / Close
+  - id: fan_open
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_open");
+
+  - id: fan_close
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_close");
+
+  # ======== AIR IN 10% out 100% ========
+  - id: fan_air_out_10
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_air_out_10");
+
+  - id: fan_air_out_20
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_air_out_20");
+
+  - id: fan_air_out_30
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_air_out_30");
+
+  - id: fan_air_out_40
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_air_out_40");
+
+  - id: fan_air_out_50
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_air_out_50");
+
+  - id: fan_air_out_60
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_air_out_60");
+
+  - id: fan_air_out_70
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_air_out_70");
+
+  - id: fan_air_out_80
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_air_out_80");
+
+  - id: fan_air_out_90
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_air_out_90");
+
+  - id: fan_air_out_100
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_air_out_100");
+
+
+  # ======== AIR IN 10% to 100% ========
+  - id: fan_air_in_10
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_air_in_10");
+
+  - id: fan_air_in_20
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_air_in_20");
+
+  - id: fan_air_in_30
+    mode: single
+    then:
+
+  - id: fan_air_in_40
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_air_in_30");
+
+  - id: fan_air_in_50
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_air_in_50");
+
+  - id: fan_air_in_60
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_air_in_60");
+
+  - id: fan_air_in_70
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_air_in_70");
+
+  - id: fan_air_in_80
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_air_in_80");
+
+  - id: fan_air_in_90
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_air_in_90");
+
+  - id: fan_air_in_100
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_air_in_100");
+
+  # ======== CEILING FAN 10% to 100% ========
+  - id: fan_ceiling_10
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_ceiling_10");
+
+  - id: fan_ceiling_20
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_ceiling_20");
+
+  - id: fan_ceiling_30
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_ceiling_30");
+
+  - id: fan_ceiling_40
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_ceiling_40");
+
+  - id: fan_ceiling_50
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_ceiling_50");
+
+  - id: fan_ceiling_60
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_ceiling_60");
+
+  - id: fan_ceiling_70
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_ceiling_70");
+
+  - id: fan_ceiling_80
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_ceiling_80");
+
+  - id: fan_ceiling_90
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_ceiling_90");
+
+  - id: fan_ceiling_100
+    mode: single
+    then:
+      - lambda: |-
+          ESP_LOGI("fan", "fan_ceiling_100");

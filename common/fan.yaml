@@ -1,0 +1,134 @@
+packages:
+  remote: !include remotes/contract.yaml
+
+number:
+  - platform: template
+    name: "Fan Min Speed"
+    id: fan_min_speed
+    min_value: 0
+    max_value: 10
+    step: 1
+    unit_of_measurement: ""
+    icon: "mdi:fan"
+    initial_value: 0
+    optimistic: true
+    restore_value: yes
+    entity_category: config
+    mode: BOX
+    on_value:
+      then:
+        - script.execute: fan_apply
+
+  - platform: template
+    name: "Fan Max Speed"
+    id: fan_max_speed
+    min_value: 1
+    max_value: 10
+    step: 1
+    unit_of_measurement: ""
+    icon: "mdi:fan"
+    initial_value: 10
+    optimistic: true
+    restore_value: yes
+    entity_category: config
+    mode: BOX
+    on_value:
+      then:
+        - script.execute: fan_apply
+
+fan:
+  - platform: template
+    id: fan_control
+    name: "Fan"
+    restore_mode: RESTORE_DEFAULT_OFF
+    speed_count: 10
+    has_direction: true
+    has_oscillating: true
+
+    on_turn_on:
+      then:
+        - lambda: |-
+            ESP_LOGI("fan", "Fan was Turn On");
+        - script.execute: fan_apply
+
+    on_speed_set:
+      then:
+        - lambda: |-
+            ESP_LOGI("fan", "Fan Speed was changed to %d!", x);
+        - script.execute: fan_apply
+
+    on_direction_set:
+      then:
+        - lambda: |-
+            ESP_LOGI("fan", "Fan Direction was changed to %s!", x == esphome::fan::FanDirection::FORWARD ? "FORWARD" : "REVERSE");
+        - script.execute: fan_apply
+
+    on_oscillating_set:
+      then:
+        - lambda: |-
+            ESP_LOGI("fan", "Fan Oscillating was changed to %s!", x ? "ON" : "OFF");
+        - script.execute: fan_apply
+
+    on_turn_off:
+      then:
+        - lambda: |-
+            ESP_LOGI("fan", "Fan was Turn Off");
+        - script.execute: fan_close
+
+script:
+  - id: fan_apply
+    mode: single
+    then:
+        - lambda: |-
+            if (!id(fan_control).state) {
+              return;
+            }
+
+            int speed_step = std::clamp(
+              id(fan_control).speed,
+              int(id(fan_min_speed).state),
+              int(id(fan_max_speed).state)
+            );
+
+            bool is_vent = id(fan_control).oscillating;
+            bool is_ceiling = !is_vent;
+
+            if (is_ceiling) { // Ceiling mode
+              if (speed_step == 1) id(fan_close).execute();
+              else if (speed_step == 2) id(fan_ceiling_10).execute();
+              else if (speed_step == 3) id(fan_ceiling_20).execute();
+              else if (speed_step == 4) id(fan_ceiling_30).execute();
+              else if (speed_step == 5) id(fan_ceiling_40).execute();
+              else if (speed_step == 6) id(fan_ceiling_50).execute();
+              else if (speed_step == 7) id(fan_ceiling_60).execute();
+              else if (speed_step == 8) id(fan_ceiling_70).execute();
+              else if (speed_step == 9) id(fan_ceiling_80).execute();
+              else if (speed_step == 10) id(fan_ceiling_100).execute();
+              return;
+            }
+
+            // Vent mode
+            if (id(fan_control).direction == esphome::fan::FanDirection::FORWARD) {
+              if (speed_step == 1) id(fan_open).execute();
+              else if (speed_step == 2) id(fan_air_out_10).execute();
+              else if (speed_step == 3) id(fan_air_out_20).execute();
+              else if (speed_step == 4) id(fan_air_out_30).execute();
+              else if (speed_step == 5) id(fan_air_out_40).execute();
+              else if (speed_step == 6) id(fan_air_out_50).execute();
+              else if (speed_step == 7) id(fan_air_out_60).execute();
+              else if (speed_step == 8) id(fan_air_out_70).execute();
+              else if (speed_step == 9) id(fan_air_out_80).execute();
+              else if (speed_step == 10) id(fan_air_out_100).execute();
+            } 
+            else {
+              if (speed_step == 1) id(fan_open).execute();
+              else if (speed_step == 2) id(fan_air_in_10).execute();
+              else if (speed_step == 3) id(fan_air_in_20).execute();
+              else if (speed_step == 4) id(fan_air_in_30).execute();
+              else if (speed_step == 5) id(fan_air_in_40).execute();
+              else if (speed_step == 6) id(fan_air_in_50).execute();
+              else if (speed_step == 7) id(fan_air_in_60).execute();
+              else if (speed_step == 8) id(fan_air_in_70).execute();
+              else if (speed_step == 9) id(fan_air_in_80).execute();
+              else if (speed_step == 10) id(fan_air_in_100).execute();
+            }
