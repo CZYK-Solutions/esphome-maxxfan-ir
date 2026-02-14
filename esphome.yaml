@@ -2,8 +2,8 @@ packages:
   fan: !include common/fan.yaml
 
 esphome:
-  name: maxxfan-ir
-  friendly_name: Maxxfan IR
+  name: maxxfan
+  friendly_name: Maxxfan
 
 # Your own configuration goes here
 esp32:

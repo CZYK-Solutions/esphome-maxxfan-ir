@@ -1,6 +1,6 @@
-# Maxxfan IR Contract for ESPHome
+# Maxxfan Contract for ESPHome
 
-This package defines a contract for controlling a Maxxfan via IR using ESPHome. It provides template buttons and expected script IDs, but **does not** configure hardware pins or IR codes. You must implement the `remote_transmitter` and scripts yourself, following the contract described below.
+This package defines a contract for controlling a Maxxfan via using ESPHome. It provides expected script IDs, but **does not** configure hardware pins or IR codes. You must implement the `remote_transmitter` and scripts yourself, following the contract described below.
 
 ## What this package provides
 
@@ -8,7 +8,7 @@ This package defines a contract for controlling a Maxxfan via IR using ESPHome. 
 - Min/max speeds to clamp the set speed
 - Ceiling mode
 - Air in/out modes
-- A contract for how your scripts should trigger IR transmissions
+- A contract for how your scripts should trigger transmissions
 
 ## What you must implement
 
