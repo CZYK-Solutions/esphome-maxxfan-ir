@@ -49,6 +49,8 @@ script:
   - id: !extend fan_open
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_open");
       - remote_transmitter.transmit_maxxfan:
           transmitter_id: ir_transmitter
           fan_on: false
@@ -57,6 +59,8 @@ script:
   - id: !extend fan_close
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_close");
       - remote_transmitter.transmit_maxxfan:
           transmitter_id: ir_transmitter
           fan_on: false
@@ -66,6 +70,8 @@ script:
   - id: !extend fan_air_out_10
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_out_10");
       - script.execute:
           id: send_out
           speed: 10
@@ -73,6 +79,8 @@ script:
   - id: !extend fan_air_out_20
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_out_20");
       - script.execute:
           id: send_out
           speed: 20
@@ -80,6 +88,8 @@ script:
   - id: !extend fan_air_out_30
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_out_30");
       - script.execute:
           id: send_out
           speed: 30
@@ -87,6 +97,8 @@ script:
   - id: !extend fan_air_out_40
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_out_40");
       - script.execute:
           id: send_out
           speed: 40
@@ -94,6 +106,8 @@ script:
   - id: !extend fan_air_out_50
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_out_50");
       - script.execute:
           id: send_out
           speed: 50
@@ -101,6 +115,8 @@ script:
   - id: !extend fan_air_out_60
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_out_60");
       - script.execute:
           id: send_out
           speed: 60
@@ -108,6 +124,8 @@ script:
   - id: !extend fan_air_out_70
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_out_70");
       - script.execute:
           id: send_out
           speed: 70
@@ -115,6 +133,8 @@ script:
   - id: !extend fan_air_out_80
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_out_80");
       - script.execute:
           id: send_out
           speed: 80
@@ -122,6 +142,8 @@ script:
   - id: !extend fan_air_out_90
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_out_90");
       - script.execute:
           id: send_out
           speed: 90
@@ -129,6 +151,8 @@ script:
   - id: !extend fan_air_out_100
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_out_100");
       - script.execute:
           id: send_out
           speed: 100
@@ -137,6 +161,8 @@ script:
   - id: !extend fan_air_in_10
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_in_10");
       - script.execute:
           id: send_in
           speed: 10
@@ -144,6 +170,8 @@ script:
   - id: !extend fan_air_in_20
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_in_20");
       - script.execute:
           id: send_in
           speed: 20
@@ -151,6 +179,8 @@ script:
   - id: !extend fan_air_in_30
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_in_30");
       - script.execute:
           id: send_in
           speed: 30
@@ -158,6 +188,8 @@ script:
   - id: !extend fan_air_in_40
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_in_40");
       - script.execute:
           id: send_in
           speed: 40
@@ -165,6 +197,8 @@ script:
   - id: !extend fan_air_in_50
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_in_50");
       - script.execute:
           id: send_in
           speed: 50
@@ -172,6 +206,8 @@ script:
   - id: !extend fan_air_in_60
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_in_60");
       - script.execute:
           id: send_in
           speed: 60
@@ -179,6 +215,8 @@ script:
   - id: !extend fan_air_in_70
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_in_70");
       - script.execute:
           id: send_in
           speed: 70
@@ -186,6 +224,8 @@ script:
   - id: !extend fan_air_in_80
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_in_80");
       - script.execute:
           id: send_in
           speed: 80
@@ -193,6 +233,8 @@ script:
   - id: !extend fan_air_in_90
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_in_90");
       - script.execute:
           id: send_in
           speed: 90
@@ -200,6 +242,8 @@ script:
   - id: !extend fan_air_in_100
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_in_100");
       - script.execute:
           id: send_in
           speed: 100
@@ -208,6 +252,8 @@ script:
   - id: !extend fan_ceiling_10
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_ceiling_10");
       - script.execute:
           id: send_ceiling
           speed: 10
@@ -215,6 +261,8 @@ script:
   - id: !extend fan_ceiling_20
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_ceiling_20");
       - script.execute:
           id: send_ceiling
           speed: 20
@@ -222,6 +270,8 @@ script:
   - id: !extend fan_ceiling_30
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_ceiling_30");
       - script.execute:
           id: send_ceiling
           speed: 30
@@ -229,6 +279,8 @@ script:
   - id: !extend fan_ceiling_40
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_ceiling_40");
       - script.execute:
           id: send_ceiling
           speed: 40
@@ -236,6 +288,8 @@ script:
   - id: !extend fan_ceiling_50
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_ceiling_50");
       - script.execute:
           id: send_ceiling
           speed: 50
@@ -243,6 +297,8 @@ script:
   - id: !extend fan_ceiling_60
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_ceiling_60");
       - script.execute:
           id: send_ceiling
           speed: 60
@@ -250,6 +306,8 @@ script:
   - id: !extend fan_ceiling_70
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_ceiling_70");
       - script.execute:
           id: send_ceiling
           speed: 70
@@ -257,6 +315,8 @@ script:
   - id: !extend fan_ceiling_80
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_ceiling_80");
       - script.execute:
           id: send_ceiling
           speed: 80
@@ -264,6 +324,8 @@ script:
   - id: !extend fan_ceiling_90
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_ceiling_90");
       - script.execute:
           id: send_ceiling
           speed: 90
@@ -271,6 +333,8 @@ script:
   - id: !extend fan_ceiling_100
     mode: single
     then:
+      - lambda: |-
+          ESP_LOGD("remote", "fan_air_ceiling_100");
       - script.execute:
           id: send_ceiling
           speed: 100
